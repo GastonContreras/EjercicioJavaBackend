@@ -17,6 +17,8 @@ public class EjercicioUno {
         Tarjeta tarjeta3 = new Tarjeta("Gaston Contreras",213,1000.0,"VISA",LocalDate.of(2035,5,22));
         //Muestro una tarjeta
         System.out.println(tarjeta1.toString());
+        //Me fijo si una operacion es valida
+        servicio.esImporteValido(200);
         //Me fijo si dos tarjetas con iguales
         servicio.sonTarjetasIguales(tarjeta1, tarjeta1);
         //Veo si la tarjeta esta vencida
