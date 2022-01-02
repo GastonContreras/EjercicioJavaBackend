@@ -22,10 +22,16 @@ public class EldarChallengeApplication {
 		Pedido object = gson.fromJson(fullName, Pedido.class);
 		System.out.println(object);
 		TarjetaServicio servicio = new TarjetaServicio();
-		//si encapsulo la variable tasa en un objeto y lo retorno este se muestra como Json por defecto
-		Response response = new Response();
 		double tasa = servicio.tasaOperacion(object.getMarca(), object.getImporte());
-		response.setTasa(tasa);
+		Response response = new Response();
+		if(tasa != 0 && object.getImporte() != 0){
+			response.setTasa(tasa);
+			response.setMensaje("Todo salio bien.");
+		}  else {
+			response.setTasa(0);
+			response.setMensaje("Error, la marca o el importe son invalidos.");
+		}
+		//si retorno el objeto response este se muestra en formator Json por defecto
 		return response;
 	}
 }

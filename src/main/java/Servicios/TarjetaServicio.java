@@ -6,10 +6,6 @@ import java.time.LocalDate;
 
 public class TarjetaServicio {
 
-    public void comprar(Tarjeta usuario, double monto) {
-        if (esOperacionValida(usuario,monto)) {
-        } else System.out.println("La compra no se puede realizar.");
-    }
     public boolean esOperacionValida(Tarjeta usuario, double monto){
         return esImporteValido(monto) && esTarjetaValida(usuario);
     }
@@ -31,7 +27,6 @@ public class TarjetaServicio {
 
     public boolean sonTarjetasIguales(Tarjeta t1, Tarjeta t2) {
         if (t1 == t2) {
-            System.out.println("Son tarjetas iguales");
             return true;
         } else return false;
     }
@@ -53,6 +48,11 @@ public class TarjetaServicio {
                 tasa = 0;
                 System.out.println("La marca de la tarjeta es incorrecta.");
         }
+        //Arreglo la variable tasa para que este entre 0.3% y 5%
+        if(tasa > 5) { tasa = 5; }
+        if(tasa < 0.3 && tasa != 0) { tasa = 0.3; }
+        //calculo la tasa de la operacion
+        tasa = monto * 0.01 * tasa;
         return tasa;
     }
 }

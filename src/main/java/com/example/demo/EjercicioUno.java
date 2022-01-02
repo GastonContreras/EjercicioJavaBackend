@@ -12,17 +12,36 @@ public class EjercicioUno {
         System.out.println(date);
         TarjetaServicio servicio = new TarjetaServicio();
         //Creo 3 objetos de clase Tarjeta
-        Tarjeta tarjeta1 = new Tarjeta("Gaston Contreras",123,1000.0,"VISA",LocalDate.of(2023,12,1));
-        Tarjeta tarjeta2 = new Tarjeta("Gaston Contreras",321,1000.0,"VISA",LocalDate.of(2020,9,5));
-        Tarjeta tarjeta3 = new Tarjeta("Gaston Contreras",213,1000.0,"VISA",LocalDate.of(2035,5,22));
+        Tarjeta tarjeta1 = new Tarjeta("Gaston Contreras",123,"VISA",LocalDate.of(2023,12,1));
+        Tarjeta tarjeta2 = new Tarjeta("Gaston Contreras",321,"VISA",LocalDate.of(2020,9,5));
+        Tarjeta tarjeta3 = new Tarjeta("Gaston Contreras",213,"VISA",LocalDate.of(2035,5,22));
         //Muestro una tarjeta
         System.out.println(tarjeta1.toString());
         //Me fijo si una operacion es valida
-        servicio.esImporteValido(200);
+        if(servicio.esImporteValido(200.0)){
+            System.out.println("Es una operacion valida.");
+        } else {
+            System.out.println("No es una operacion valida");
+        }
         //Me fijo si dos tarjetas con iguales
-        servicio.sonTarjetasIguales(tarjeta1, tarjeta1);
+        if(servicio.sonTarjetasIguales(tarjeta1,tarjeta2)){
+            System.out.println("Son tarjetas iguales.");
+        } else {
+            System.out.println("No son tarjetas iguales");
+        }
         //Veo si la tarjeta esta vencida
-        servicio.esTarjetaValida(tarjeta2);
+        if(servicio.esTarjetaValida(tarjeta2)){
+            System.out.println("La tarjeta no esta vencida.");
+        } else {
+            System.out.println("La tarjeta no esta vencida");
+        }
+        //Calculo la tasa de una operacion
+        double tasa = servicio.tasaOperacion(tarjeta1.getMarca(), 500.0);
+        if(tasa == 0){
+            System.out.println("La marca de la tarjeta es invalida");
+        } else {
+            System.out.println("La tasa de la operacion es igual a: " + tasa);
+        }
     }
 
 }

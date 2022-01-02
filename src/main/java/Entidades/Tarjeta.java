@@ -7,8 +7,6 @@ public class Tarjeta {
 
     private int numeroDeTarjeta;
 
-    private double saldo;
-
     private String marca;
 
     private LocalDate fechaDeVencimiento;
@@ -16,10 +14,9 @@ public class Tarjeta {
     public Tarjeta() {
     }
 
-    public Tarjeta(String cardHolder, int numeroDeTarjeta, double saldo, String marca, LocalDate fechaDeVencimiento) {
+    public Tarjeta(String cardHolder, int numeroDeTarjeta, String marca, LocalDate fechaDeVencimiento) {
         this.cardHolder = cardHolder;
         this.numeroDeTarjeta = numeroDeTarjeta;
-        this.saldo = saldo;
         this.marca = marca;
         this.fechaDeVencimiento = fechaDeVencimiento;
     }
@@ -38,14 +35,6 @@ public class Tarjeta {
 
     public void setNumeroDeTarjeta(int numeroDeTarjeta) {
         this.numeroDeTarjeta = numeroDeTarjeta;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
     }
 
     public String getMarca() {
@@ -69,7 +58,6 @@ public class Tarjeta {
         return "Tarjeta{" +
                 "cardHolder='" + cardHolder + '\'' +
                 ", numeroDeTarjeta=" + numeroDeTarjeta +
-                ", saldo=" + saldo +
                 ", marca='" + marca + '\'' +
                 ", fechaDeVencimiento=" + fechaDeVencimiento +
                 '}';
